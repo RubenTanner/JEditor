@@ -20,38 +20,37 @@ public class AlarmTable {
 	private JTable table;
 	private JScrollPane scroll;
 
-	public static AlarmTable getInstance(){
-		if(instance == null){
+	public static AlarmTable getInstance() {
+		if (instance == null) {
 			instance = new AlarmTable();
 		}
 		return instance;
 	}
 
-	private AlarmTable(){
+	private AlarmTable() {
 		init();
 		addFeatures();
 	}
 
-	public void init(){
-		
-		table = new JTable(){
+	public void init() {
+
+		table = new JTable() {
 
 			private static final long serialVersionUID = 4162413631142423664L;
 
 			@Override
-			public Component prepareRenderer(TableCellRenderer r , int row , int column){
+			public Component prepareRenderer(TableCellRenderer r, int row, int column) {
 
 				Component c = super.prepareRenderer(r, row, column);
 				c.setForeground(Color.BLACK);
 
-				if(column % 2 !=0){
+				if (column % 2 != 0) {
 					c.setBackground(Color.LIGHT_GRAY);
-				}
-				else{
+				} else {
 					c.setBackground(Color.WHITE);
 				}
 
-				if(isCellSelected(row, column)){
+				if (isCellSelected(row, column)) {
 					c.setBackground(new Color(221, 72, 20));
 					c.setForeground(Color.WHITE);
 				}
@@ -69,12 +68,13 @@ public class AlarmTable {
 		scroll = new JScrollPane(table);
 		scroll.setComponentPopupMenu(new TablePopupMenu());
 	}
-	
-	public void addFeatures(){
-		
-		scroll.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK), 0);
+
+	public void addFeatures() {
+
+		scroll.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_DOWN_MASK), 0);
 		scroll.getActionMap().put(0, new AbstractAction() {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -82,10 +82,11 @@ public class AlarmTable {
 				table.selectAll();
 			}
 		});
-		
-		scroll.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK), 1);
+
+		scroll.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, InputEvent.CTRL_DOWN_MASK), 1);
 		scroll.getActionMap().put(1, new AbstractAction() {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -94,12 +95,12 @@ public class AlarmTable {
 			}
 		});
 	}
-	
-	public JScrollPane getTable(){
+
+	public JScrollPane getTable() {
 		return scroll;
 	}
-	
-	public JTable getRealTable(){
+
+	public JTable getRealTable() {
 		return table;
 	}
 

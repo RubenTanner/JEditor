@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 public class MP3 {
 	private String filename;
-	//private Player player; 
+	// private Player player;
 	private FileInputStream fis;
 	private BufferedInputStream bis;
 
@@ -17,40 +17,41 @@ public class MP3 {
 		this.filename = filename;
 	}
 
-	public MP3(InputStream fi){
+	public MP3(InputStream fi) {
 
 		bis = new BufferedInputStream(fi);
 	}
 
-	/*public void close() { if (player != null) player.close(); }
-
-	// play the MP3 file to the sound card
-	public void play() {
-		try {
-
-			if(filename != null){
-				fis = new FileInputStream(filename);
-				bis = new BufferedInputStream(fis);
-			}
-
-			player = new Player(bis);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		// run in new thread to play in background
-		new Thread() {
-			public void run() {
-				try { 
-					player.play(); 
-				}
-				catch (Exception e) { e.printStackTrace(); }
-			}
-		}.start();
-
-
-	}
-	
-	*/
+	/*
+	 * public void close() { if (player != null) player.close(); }
+	 * 
+	 * // play the MP3 file to the sound card
+	 * public void play() {
+	 * try {
+	 * 
+	 * if(filename != null){
+	 * fis = new FileInputStream(filename);
+	 * bis = new BufferedInputStream(fis);
+	 * }
+	 * 
+	 * player = new Player(bis);
+	 * }
+	 * catch (Exception e) {
+	 * e.printStackTrace();
+	 * }
+	 * 
+	 * // run in new thread to play in background
+	 * new Thread() {
+	 * public void run() {
+	 * try {
+	 * player.play();
+	 * }
+	 * catch (Exception e) { e.printStackTrace(); }
+	 * }
+	 * }.start();
+	 * 
+	 * 
+	 * }
+	 * 
+	 */
 }

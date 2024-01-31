@@ -11,7 +11,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 
 public class WavPlayer {
-	
+
 	private final int BUFFER_SIZE = 128000;
 	private URL soundFile;
 	private AudioInputStream audioStream;
@@ -19,17 +19,14 @@ public class WavPlayer {
 	private SourceDataLine sourceLine;
 	Thread thread;
 
-
-	public WavPlayer(URL url){
+	public WavPlayer(URL url) {
 		soundFile = url;
 	}
-
-
 
 	/**
 	 * @param filename the name of the file that is going to be played
 	 */
-	public void playSound(){
+	public void playSound() {
 
 		thread = new Thread(new Runnable() {
 
@@ -37,7 +34,7 @@ public class WavPlayer {
 			public void run() {
 				try {
 					audioStream = AudioSystem.getAudioInputStream(soundFile);
-				} catch (Exception e){
+				} catch (Exception e) {
 					e.printStackTrace();
 					return;
 				}
@@ -77,9 +74,9 @@ public class WavPlayer {
 
 		thread.start();
 	}
-	
+
 	@SuppressWarnings("deprecation")
-	public void stopSound(){
+	public void stopSound() {
 		thread.stop();
 		sourceLine.stop();
 	}
