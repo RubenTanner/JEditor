@@ -26,7 +26,7 @@ import Utility.ImageLoader;
 public class RibbonMenu extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-	public static RibbonButton newtab,open,save,saveas,close,closeall,undo,redo,help;
+	public static RibbonButton newtab,openProject,save,saveas,close,closeall,undo,redo,help;
 	public static RibbonButton time;
 	private Timer timer;
 	private SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss a");
@@ -60,7 +60,7 @@ public class RibbonMenu extends JPanel{
 	public void init(){
 
 		newtab = new RibbonButton("New tab","Open a new tab");
-		open = new RibbonButton("Open" , "Open an existing file");
+		openProject = new RibbonButton("Open Project" , "Open an existing Project");
 		save = new RibbonButton("Save" , "Save the current file");
 		saveas = new RibbonButton("Save As" , "Save the current file under a new name");
 		close = new RibbonButton("Close" , "Close the current file");
@@ -94,7 +94,7 @@ public class RibbonMenu extends JPanel{
 		right.setLayout(fl);
 		
 		left.add(newtab);
-		left.add(open);
+		left.add(openProject);
 		left.add(new CSeparator());
 		left.add(save);
 		left.add(saveas);
@@ -115,7 +115,7 @@ public class RibbonMenu extends JPanel{
 
 	public void addIcons(){
 		newtab.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/newtab.png"))));
-		open.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/open.png"))));
+		openProject.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/open.png"))));
 		save.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/save.png"))));
 		saveas.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/saveas.png"))));
 		close.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getClassLoader().getResource("images/close.png"))));
@@ -135,7 +135,7 @@ public class RibbonMenu extends JPanel{
 			}
 		});
 
-		open.addActionListener(new ActionListener() {
+		openProject.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

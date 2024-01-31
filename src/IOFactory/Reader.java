@@ -28,7 +28,7 @@ public class Reader {
 
 	public static void openDialog(){
 		
-		FileDialog dialog = new FileDialog(JEditor.frame , "Open a file" , FileDialog.LOAD);
+		FileDialog dialog = new FileDialog(JEditor.frame , "Open a Project" , FileDialog.LOAD);
 		dialog.setMultipleMode(true);
 		dialog.setVisible(true);
 
