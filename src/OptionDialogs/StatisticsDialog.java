@@ -51,6 +51,7 @@ public class StatisticsDialog{
 		panel.add(getCharWithSpacesCount());
 		panel.add(getCharWithoutSpacesCount());
 		panel.add(getLineCount());
+		panel.add(getPackageCount());
 		dialog.add(panel , BorderLayout.CENTER);
 		dialog.add(getBPanel() , BorderLayout.SOUTH);
 	}
@@ -90,6 +91,28 @@ public class StatisticsDialog{
 		return panel;
 	}
 	
+	public JPanel getPackageCount(){
+		JPanel panel = new JPanel(new FlowLayout());
+		int packageCount = countPackages();
+		JLabel count = new CLabel(packageCount + "");
+		panel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED), "Package count"));
+		panel.add(count);
+		return panel;
+	}
+		
+	private int countPackages() {
+		String code = CTabbedPane.getInstance().getPanel().getTextArea().getText();
+		int count = 0;
+		String[] lines = code.split(System.getProperty("line.separator"));
+		for (String line : lines) {
+			if (line.trim().startsWith("import")) {
+				count++;
+			}
+		}
+		return count;
+	}
+		
+
 	public JPanel getCharWithoutSpacesCount(){
 		JPanel panel = new JPanel(new FlowLayout());
 		JLabel count = new CLabel(CTabbedPane.getInstance().getPanel().getTextArea().getText().replace(" ", "").length()+"");
